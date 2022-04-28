@@ -34,6 +34,7 @@ router.get('/categories/:categoryId/questions', async function(req, res, next) {
     console.log('req.params', req.params)
 
     let questions = await Question.findAll({where: {categoryId: req.params.categoryId}})
+    // let questions = await Question.findAll({where: {categoryId: req.params.categoryId}, include: [Answer]})
     // res.json(categories)
     res.json(questions)
 });
